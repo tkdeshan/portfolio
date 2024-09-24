@@ -235,7 +235,7 @@
               </div>
               <!-- End Skills Item -->
 
-               <div class="progress">
+              <div class="progress">
                 <span class="skill"><span>MySql</span> <i class="val">60%</i></span>
                 <div class="progress-bar-wrap">
                   <div
@@ -373,6 +373,20 @@
             <div class="col-lg-3 col-md-6">
               <div class="stats-item text-center w-100 h-100">
                 <span
+                  id="experience"
+                  data-purecounter-start="0"
+                  data-purecounter-end="1"
+                  data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Experience</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  id="project-counter"
                   data-purecounter-start="0"
                   data-purecounter-end="20"
                   data-purecounter-duration="1"
@@ -385,35 +399,25 @@
             <div class="col-lg-3 col-md-6">
               <div class="stats-item text-center w-100 h-100">
                 <span
+                  id="contribute-counter"
+                  data-purecounter-start="0"
+                  data-purecounter-end="10"
+                  data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Contributions</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  id="commit-counter"
                   data-purecounter-start="0"
                   data-purecounter-end="1100"
                   data-purecounter-duration="1"
                   class="purecounter"></span>
                 <p>Total commits (2024)</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="1453"
-                  data-purecounter-duration="1"
-                  class="purecounter"></span>
-                <p>Hours Of Support</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="32"
-                  data-purecounter-duration="1"
-                  class="purecounter"></span>
-                <p>Workers</p>
               </div>
             </div>
             <!-- End Stats Item -->
@@ -525,6 +529,24 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get all counters
+        const counters = document.querySelectorAll(".purecounter");
+
+        counters.forEach((counter) => {
+          const endValue = counter.getAttribute("data-purecounter-end");
+
+          const observer = new MutationObserver(() => {
+            if (counter.innerHTML === endValue) {
+              counter.innerHTML += "+";
+            }
+          });
+
+          observer.observe(counter, { childList: true });
+        });
+      });
+    </script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
