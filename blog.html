@@ -58,20 +58,33 @@
     </header>
 
     <main class="main">
-      <!-- Starter Section Section -->
-      <section id="starter-section" class="starter-section section">
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="portfolio section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <h2>Starter Section</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <h2>Blog</h2>
+          <p>
+            I explore the latest advancements in software engineering and cutting-edge technology. Here, I
+            share insights and best practices aimed at inspiring fellow developers and tech enthusiasts.
+          </p>
         </div>
         <!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up">
-          <p>Use this page as a starter for your own custom pages.</p>
+        <div class="container">
+          <div
+            class="isotope-layout"
+            data-default-filter="*"
+            data-layout="masonry"
+            data-sort="original-order">
+            <div
+              id="blog-list"
+              class="row gy-4 isotope-container"
+              data-aos="fade-up"
+              data-aos-delay="200"></div>
+          </div>
         </div>
       </section>
-      <!-- /Starter Section Section -->
+      <!-- /Portfolio Section -->
     </main>
 
     <footer id="footer" class="footer light-background">
@@ -117,6 +130,35 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <script src="./constants/blogs.js"></script>
+
+    <script>
+      // Render blogs
+      const blogList = document.getElementById("blog-list");
+
+      blogs.forEach((blog, index) => {
+        let recHTML = `
+          <div class="col-lg-4 col-md-6 blog isotope-item">
+            <div class="blog-content h-100">
+              <a href="${blog.url}" target="_blank">
+                <img
+                  src="${blog.image}"
+                  class="img-fluid"
+                  alt="${blog.title}"
+                />
+              </a>
+            </div>
+            <div class="blog-info">
+              <h4>${blog.title}</h4>
+            </div>
+          </div>
+        `;
+
+        // Append the constructed HTML to the blog list
+        blogList.insertAdjacentHTML("beforeend", recHTML);
+      });
+    </script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
