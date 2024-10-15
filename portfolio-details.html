@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Kavindaa Deshan</title>
+    <title>Kavinda Deshan</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -58,80 +58,40 @@
     </header>
 
     <main class="main">
-      <!-- Portfolio Details Section -->
       <section id="portfolio-details" class="portfolio-details section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <h2>Portfolio Details</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <h2 id="project-title">Portfolio Details</h2>
         </div>
         <!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container">
           <div class="row gy-4">
             <div class="col-lg-8">
-              <div class="portfolio-details-slider swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                  {
-                    "loop": true,
-                    "speed": 600,
-                    "autoplay": {
-                      "delay": 5000
-                    },
-                    "slidesPerView": "auto",
-                    "pagination": {
-                      "el": ".swiper-pagination",
-                      "type": "bullets",
-                      "clickable": true
-                    }
-                  }
-                </script>
-
-                <div class="swiper-wrapper align-items-center">
-                  <div class="swiper-slide">
-                    <img src="assets/img/portfolio/app-1.jpg" alt="" />
-                  </div>
-
-                  <div class="swiper-slide">
-                    <img src="assets/img/portfolio/product-1.jpg" alt="" />
-                  </div>
-
-                  <div class="swiper-slide">
-                    <img src="assets/img/portfolio/branding-1.jpg" alt="" />
-                  </div>
-
-                  <div class="swiper-slide">
-                    <img src="assets/img/portfolio/books-1.jpg" alt="" />
-                  </div>
+              <div class="swiper-container" id="project-slider">
+                <div class="swiper-wrapper" id="project-slides">
+                  <!-- Dynamic slides will be inserted here -->
                 </div>
+
+                <!-- Add pagination -->
                 <div class="swiper-pagination"></div>
               </div>
             </div>
 
             <div class="col-lg-4">
               <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-                <h3>Project information</h3>
-                <ul>
-                  <li><strong>Category</strong>: Web design</li>
-                  <li><strong>Client</strong>: ASU Company</li>
-                  <li><strong>Project date</strong>: 01 March, 2020</li>
-                  <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-                </ul>
+                <h3>Project Information</h3>
+                <ul id="project-info"></ul>
               </div>
+
               <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-                <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-                <p>
-                  Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore
-                  quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim.
-                  Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi
-                  nulla at esse enim cum deserunt eius.
-                </p>
+                <h2>Description</h2>
+                <p id="project-description"></p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- /Portfolio Details Section -->
     </main>
 
     <footer id="footer" class="footer light-background">
@@ -177,6 +137,118 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <script src="./constants/projects.js"></script>
+
+    <script>
+      // Function to get URL parameters
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Get project ID from the URL
+      const projectId = getQueryParam("id");
+
+      // Find the project details using project ID
+      const project = projects.find((p) => p.id == projectId);
+      if (project) {
+        document.getElementById("project-title").innerHTML = project.title;
+        document.getElementById("project-description").innerHTML = project.description;
+
+        // Dynamically add slides for each image in the project
+        const slidesContainer = document.getElementById("project-slides");
+
+        project.slides.forEach((image) => {
+          const slide = document.createElement("div");
+          slide.classList.add("swiper-slide");
+          slide.innerHTML = `<img src="${image}" alt="${project.title}">`;
+          slidesContainer.appendChild(slide);
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper("#project-slider", {
+          loop: true,
+          slidesPerView: 1,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            bulletClass: "swiper-pagination-bullet", // Default bullet class
+            bulletActiveClass: "swiper-pagination-bullet-active", // Active bullet class
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+        });
+        // Dynamically add project information
+        const projectInfoContainer = document.getElementById("project-info");
+
+        // Add date if available
+        if (project.date) {
+          projectInfoContainer.innerHTML += `<li><strong>Date :- </strong>${project.date}</li>`;
+        }
+
+        // Add context if available
+        if (project.context) {
+          projectInfoContainer.innerHTML += `<li><strong>Context :- </strong>${project.context}</li>`;
+        }
+
+        // Add client if available
+        if (project.client) {
+          projectInfoContainer.innerHTML += `<li><strong>Client :- </strong>${project.client}</li>`;
+        }
+
+        // Initialize an empty array to hold contributor HTML strings
+        let contributorsList = [];
+
+        // Check if each contributor exists and create the link
+        if (project.contributor_1_name) {
+          contributorsList.push(
+            `<a href="${project.contributor_1_linkedin}" target="_blank">${project.contributor_1_name}</a>`
+          );
+        }
+
+        if (project.contributor_2_name) {
+          contributorsList.push(
+            `<a href="${project.contributor_2_linkedin}" target="_blank">${project.contributor_2_name}</a>`
+          );
+        }
+
+        if (project.contributor_3_name) {
+          contributorsList.push(
+            `<a href="${project.contributor_3_linkedin}" target="_blank">${project.contributor_3_name}</a>`
+          );
+        }
+
+        // Join all contributors into a single string with a comma separator
+        if (contributorsList.length > 0) {
+          projectInfoContainer.innerHTML += `<li><strong>Contributors :- </strong> ${contributorsList.join(
+            ", "
+          )}</li>`;
+        }
+
+        // Add demonstration link if available
+        if (project.demonstration) {
+          projectInfoContainer.innerHTML += `<li><strong>Demonstration Video :- </strong><a href="${project.demonstration}" target="_blank">click</a></li>`;
+        }
+
+        // Add report link if available
+        if (project.report) {
+          projectInfoContainer.innerHTML += `<li><strong>Research Report :- </strong><a href="${project.report}" target="_blank">click</a></li>`;
+        }
+
+        // Add weburl if available
+        if (project.weburl) {
+          projectInfoContainer.innerHTML += `<li><strong>Website :- </strong><a href="${project.weburl}" target="_blank">click</a></li>`;
+        }
+
+        // Add github link if available
+        if (project.github) {
+          projectInfoContainer.innerHTML += `<li><strong>Github :- </strong><a href="${project.github}" target="_blank">click</a></li>`;
+        }
+      }
+    </script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
