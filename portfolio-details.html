@@ -186,17 +186,17 @@
 
         // Add date if available
         if (project.date) {
-          projectInfoContainer.innerHTML += `<li><strong>Date : </strong>${project.date}</li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Date :- </strong>${project.date}</li>`;
         }
 
         // Add context if available
         if (project.context) {
-          projectInfoContainer.innerHTML += `<li><strong>Context : </strong>${project.context}</li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Context :- </strong>${project.context}</li>`;
         }
 
         // Add client if available
         if (project.client) {
-          projectInfoContainer.innerHTML += `<li><strong>Client : </strong>${project.client}</li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Client :- </strong>${project.client}</li>`;
         }
 
         // Initialize an empty array to hold contributor HTML strings
@@ -223,24 +223,24 @@
 
         // Join all contributors into a single string with a comma separator
         if (contributorsList.length > 0) {
-          projectInfoContainer.innerHTML += `<li><strong>Contributors : </strong> ${contributorsList.join(
+          projectInfoContainer.innerHTML += `<li><strong>Contributors :- </strong> ${contributorsList.join(
             ", "
           )}</li>`;
         }
 
         // Add demonstration link if available
         if (project.demonstration) {
-          projectInfoContainer.innerHTML += `<li><strong>Demonstration Video</strong> <br/> <a href="${project.demonstration}" target="_blank">${project.demonstration}</a></li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Demonstration Video :- </strong><a href="${project.demonstration}" target="_blank">click</a></li>`;
         }
 
         // Add weburl if available
         if (project.weburl) {
-          projectInfoContainer.innerHTML += `<li><strong>Website</strong> <br/> <a href="${project.weburl}" target="_blank">${project.weburl}</a></li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Website :- </strong><a href="${project.weburl}" target="_blank">click</a></li>`;
         }
 
         // Add github link if available
         if (project.github) {
-          projectInfoContainer.innerHTML += `<li><strong>Github</strong> <br/>  <a href="${project.github}" target="_blank">${project.github}</a></li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Github :- </strong><a href="${project.github}" target="_blank">click</a></li>`;
         }
       }
     </script>

@@ -1248,7 +1248,7 @@ section,
 .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   margin: 0 5px;
   border-radius: 50%;
 }
