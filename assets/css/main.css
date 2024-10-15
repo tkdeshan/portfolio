@@ -611,7 +611,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 20px 0;
   scroll-margin-top: 100px;
   overflow: clip;
 }
@@ -628,7 +628,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   position: relative;
 }
 
@@ -1225,63 +1225,53 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
+/* Main container layout for slideshow and project info */
+.portfolio-details .swiper-container {
   width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
   position: relative;
+  overflow: hidden;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+.portfolio-details .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.portfolio-details .swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 5px;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: blue;
   opacity: 1;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-.portfolio-details .portfolio-info {
-  background-color: var(--surface-color);
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li + li {
-  margin-top: 10px;
-}
-
+.portfolio-details .portfolio-info,
 .portfolio-details .portfolio-description {
-  padding-top: 30px;
+  padding: 10px;
 }
 
+.portfolio-details .portfolio-info h3,
 .portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
   margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .portfolio-details .portfolio-description p {
-  padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #cac9c9;
 }
 
 /*--------------------------------------------------------------
@@ -1386,13 +1376,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-
-/*--------------------------------------------------------------
 # Blog Section
 --------------------------------------------------------------*/
 .blog .blog-content {
@@ -1424,6 +1407,50 @@ section,
 }
 
 .blog .blog-content:hover img {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.project .project-content {
+  height: 280px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .project .project-content {
+    height: 100%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .project .project-content {
+    height: 310px;
+  }
+}
+
+/*Projects*/
+
+.project .project-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project .project-content img {
+  transition: 0.3s;
+}
+
+.project .project-content h4 {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 18px;
+  font-weight: 400;
+  display: inline-block;
+  padding-top: 10px;
+}
+
+.project .project-content img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
