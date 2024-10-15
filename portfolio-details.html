@@ -233,6 +233,11 @@
           projectInfoContainer.innerHTML += `<li><strong>Demonstration Video :- </strong><a href="${project.demonstration}" target="_blank">click</a></li>`;
         }
 
+        // Add report link if available
+        if (project.report) {
+          projectInfoContainer.innerHTML += `<li><strong>Research Report :- </strong><a href="${project.report}" target="_blank">click</a></li>`;
+        }
+
         // Add weburl if available
         if (project.weburl) {
           projectInfoContainer.innerHTML += `<li><strong>Website :- </strong><a href="${project.weburl}" target="_blank">click</a></li>`;
