@@ -60,6 +60,11 @@
     <main class="main">
       <section id="portfolio-details" class="portfolio-details section">
         <!-- Section Title -->
+        <button
+          style="margin-left: 25px; background-color: #408fd4; color: white; border-radius: 2px"
+          onclick="window.location.href='portfolio.html';">
+          <i class="bi bi-arrow-left"></i>
+        </button>
         <div class="container section-title" data-aos="fade-up">
           <h2 id="project-title">Portfolio Details</h2>
         </div>
@@ -197,6 +202,11 @@
         // Add client if available
         if (project.client) {
           projectInfoContainer.innerHTML += `<li><strong>Client :- </strong>${project.client}</li>`;
+        }
+
+        // Add technology if available
+        if (project.technology) {
+          projectInfoContainer.innerHTML += `<li><strong>Technologies & Tools :- </strong>${project.technology}</li>`;
         }
 
         // Initialize an empty array to hold contributor HTML strings
