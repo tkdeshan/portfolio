@@ -205,8 +205,8 @@
         }
 
         // Add technology if available
-        if (project.technology) {
-          projectInfoContainer.innerHTML += `<li><strong>Technologies & Tools :- </strong>${project.technology}</li>`;
+        if (project.skills) {
+          projectInfoContainer.innerHTML += `<li><strong>Skills :- </strong>${project.skills}</li>`;
         }
 
         // Initialize an empty array to hold contributor HTML strings
@@ -250,7 +250,7 @@
 
         // Add weburl if available
         if (project.weburl) {
-          projectInfoContainer.innerHTML += `<li><strong>Website :- </strong><a href="${project.weburl}" target="_blank">click</a></li>`;
+          projectInfoContainer.innerHTML += `<li><strong>Live On :- </strong><a href="${project.weburl}" target="_blank">click</a></li>`;
         }
 
         // Add github link if available

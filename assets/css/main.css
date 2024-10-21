@@ -997,11 +997,12 @@ section,
   display: flex;
   flex-direction: row;
   padding-left: 20px;
+  padding-right: 20px;
 }
 
 .resume .resume-item #verify img {
   width: auto;
-  height: 130px;
+  height: 120px;
   padding: 0 5px;
 }
 
@@ -1336,7 +1337,7 @@ section,
 }
 
 .project .project-content {
-  height: 280px;
+  height: 200px;
   overflow: hidden;
 }
 
