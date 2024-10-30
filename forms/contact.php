@@ -26,11 +26,11 @@ try {
     // Content
     $mail->isHTML(false);
     $mail->Subject = $_POST['subject'];
-    $mail->Body    = "Name: {$_POST['name']}\nEmail: {$_POST['email']}\n\nMessage:\n{$_POST['message']}";
+    $mail->Body    = "{$_POST['message']}\n Name: {$_POST['name']}\n Email: {$_POST['email']}";
 
     $mail->send();
     echo 'OK';
 } catch (Exception $e) {
-    echo "Error: Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "Message could not be sent.";
 }
 ?>
