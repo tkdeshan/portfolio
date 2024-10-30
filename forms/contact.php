@@ -19,8 +19,9 @@ try {
     $mail->Port       = 587;
 
     // Recipient
-    $mail->setFrom($_POST['email'], $_POST['name']);
+    $mail->setFrom('tkdeshan1103@gmail.com', 'Kavinda');
     $mail->addAddress('tkdeshan1103@gmail.com');
+    $mail->addReplyTo($_POST['email'], $_POST['name']); // User's email to reply to
 
     // Content
     $mail->isHTML(false);
@@ -28,7 +29,7 @@ try {
     $mail->Body    = "Name: {$_POST['name']}\nEmail: {$_POST['email']}\n\nMessage:\n{$_POST['message']}";
 
     $mail->send();
-    echo 'Message sent successfully!';
+    echo 'OK';
 } catch (Exception $e) {
     echo "Error: Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
