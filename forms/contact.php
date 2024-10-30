@@ -26,7 +26,10 @@ try {
     // Content
     $mail->isHTML(false);
     $mail->Subject = $_POST['subject'];
-    $mail->Body    = "{$_POST['message']}\n Name: {$_POST['name']}\n Email: {$_POST['email']}";
+    $mail->Body = "{$_POST['message']}\n\n" .
+              "Name: {$_POST['name']}\n" . 
+              "Email: {$_POST['email']}";
+
 
     $mail->send();
     echo 'OK';
