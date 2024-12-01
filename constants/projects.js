@@ -1,5 +1,28 @@
 const projects = [
   {
+    id: 19,
+    filter: "filter-web",
+    category: "Website",
+    title: "AI Chatbot Backend",
+    image: "assets/img/projects/AI-Chatbot-Backend.png",
+    slides: ["assets/img/projects/AI-Chatbot-Backend.png"],
+    date: "Oct 2024 - Nov 2024",
+    context: "Independent Study",
+    client: "",
+    contributor_1_name: "",
+    contributor_1_linkedin: "",
+    contributor_2_name: "",
+    contributor_2_linkedin: "",
+    contributor_3_name: "",
+    contributor_3_linkedin: "",
+    demonstration: "",
+    weburl: "",
+    github: "https://github.com/tkdeshan/AI-Chatbot-Backend",
+    skills: "Python | Django | Simple Language Model (SLM)",
+    description:
+      "This project is a backend server for a chatbot application, built using Django and a Simple Language Model (SLM) for text generation. The system is designed to handle user queries, generate meaningful responses, and serve them via API endpoints.",
+  },
+  {
     id: 18,
     filter: "filter-web",
     category: "Website",
