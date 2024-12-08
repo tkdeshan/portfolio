@@ -788,9 +788,10 @@ section,
 }
 
 .skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
+  background: #408fd4;
+  height: 3px;
 }
+/* change to 10px if use progress bar */
 
 .skills .progress-bar {
   width: 1px;
@@ -1337,8 +1338,8 @@ section,
 }
 
 .project .project-content {
-  height: 200px;
-  overflow: hidden;
+  height: 220px;
+
 }
 
 @media (max-width: 768px) {
@@ -1349,7 +1350,7 @@ section,
 
 @media (min-width: 1400px) {
   .project .project-content {
-    height: 310px;
+    height: 280px;
   }
 }
 
