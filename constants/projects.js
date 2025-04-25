@@ -130,7 +130,7 @@ const projects = [
     id: 15,
     filter: "filter-iot",
     category: "IoT",
-    title: "Smart Home",
+    title: "Smart Home (Prototype)",
     image: "assets/img/projects/smart home 1.jpg",
     slides: [
       "assets/img/projects/smart home 1.jpg",
