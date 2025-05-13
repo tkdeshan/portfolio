@@ -1,6 +1,6 @@
 const projects = [
   {
-    id: 22,
+    id: 21,
     filter: "filter-es",
     category: "Embedded Systems",
     title: "Computer Controlled Power Supply",
@@ -28,34 +28,6 @@ const projects = [
     skills: "Embedded Systems | C# | C++ | Innovation Development | Electronics",
     description:
       "This power supply features a graphical user interface (GUI) that allows users to obtain variable voltages up to 12 V with 0.1 V resolution. It can measure resistor values and plot I-V characteristic curves for electronic components like resistors, diodes, and transistors. The GUI facilitates command input and output display, including measured values and I-V curves.",
-  },
-  {
-    id: 21,
-    filter: "filter-web",
-    category: "Website",
-    title: "Portfolio - Lilan Dayananda (CEO of Elzian Agro)",
-    image: "assets/img/projects/Lilan-2.png",
-    slides: [
-      "assets/img/projects/Lilan-2.png",
-      "assets/img/projects/Lilan-1.png",
-      "assets/img/projects/Lilan-4.png",
-      "assets/img/projects/Lilan-3.png",
-    ],
-    date: "Nov 2024 - Jan 2025",
-    context: "",
-    client: "",
-    contributor_1_name: "",
-    contributor_1_linkedin: "",
-    contributor_2_name: "",
-    contributor_2_linkedin: "",
-    contributor_3_name: "",
-    contributor_3_linkedin: "",
-    demonstration: "",
-    weburl: "https://lilan.elzian.com/",
-    github: "",
-    skills: "HTML | CSS | JavaScript",
-    description:
-      "Highlighting his impact in sustainable agriculture, social entrepreneurship, media presence, recognition, recommendations, and providing an easy contact option.",
   },
   {
     id: 20,
