@@ -46,7 +46,7 @@ const projects = [
     contributor_3_name: "",
     contributor_3_linkedin: "",
     demonstration: "",
-    weburl: "https://phoenixsoftsolutions.com/",
+    weburl: "https://tkdeshan.github.io/Phoenix-Soft-Solutions/",
     github: "https://github.com/tkdeshan/Phoenix-Soft-Solutions",
     skills: "MERN stack | Full-stack Web Development",
     description:
@@ -222,7 +222,7 @@ const projects = [
     contributor_3_linkedin: "",
     demonstration: "",
     report: "",
-    weburl: "http://travel-lanka.infinityfreeapp.com/index.php",
+    weburl: "https://sparkware-tech.github.io/travel-lanka/",
     github: "https://github.com/tkdeshan/Web_Travel_Lanka",
     skills: "HTML  | CSS | JavaScript | PHP | MySQL",
     description:
